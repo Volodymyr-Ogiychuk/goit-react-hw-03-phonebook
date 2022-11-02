@@ -1,0 +1,14 @@
+.label {
+    display: block;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    
+}
+
+.input {
+    width: 250px;
+    display: block;
+    margin: 10px;
+    font-size: 30px;
+}
