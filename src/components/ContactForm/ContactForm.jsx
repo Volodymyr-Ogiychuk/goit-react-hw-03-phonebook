@@ -10,10 +10,7 @@ class ContactForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const form = event.currentTarget;
-        const name = form.elements.name.value;
-        const number = form.elements.number.value;
-        this.props.addContact({ name, number })
+        this.props.addContact({name: this.state.name, number: this.state.number});
         this.reset();    
     }
 
