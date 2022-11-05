@@ -7,12 +7,15 @@ import { nanoid } from "nanoid";
 
 class App extends Component {
  state = {
-  contacts: [],
+   contacts: [
+    
+  ],
   filter: ''
   }
   
-  componentDidMount() {  
-    this.setState({ contacts: JSON.parse(localStorage.getItem('cntcts')) })
+  componentDidMount() {
+
+    this.setState({ contacts: [...this.state.contacts, ...JSON.parse(localStorage.getItem('cntcts'))] })
   }
   
   addContact = (dataContact) => {
