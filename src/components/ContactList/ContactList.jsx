@@ -4,21 +4,26 @@ import React, {Component} from 'react';
 
 export class ContactList extends Component {
 
-componentDidUpdate() {
-    localStorage.setItem('cntcts', JSON.stringify(this.props.contacts));
-}
+    componentDidUpdate() {
+        console.log('this.props.contacts', this.props.contacts);
+        localStorage.setItem('cntcts', JSON.stringify(this.props.contacts));
+        console.log('LOCAL', JSON.parse(localStorage.getItem('cntcts')));
+    }
+// componentDidUpdate() {
+//     localStorage.setItem('cntcts', JSON.stringify(this.props.contacts));
+// }
 
-setContacts = () => {
-    if (JSON.parse(localStorage.getItem('cntcts')).length !== 0) {
-        this.setState.contacts = [...JSON.parse(localStorage.getItem('cntcts'))];
-    } else {
-        this.setState.contacts = [];
-    }    
-};
+// setContacts = () => {
+//     if (JSON.parse(localStorage.getItem('cntcts')).length !== 0) {
+//         this.setState.contacts = [...JSON.parse(localStorage.getItem('cntcts'))];
+//     } else {
+//         this.setState.contacts = [];
+//     }    
+// };
 
 render() {
     const { contacts, deleteContact } = this.props;
-    this.setContacts();
+    // this.setContacts();
 
 return (
     <ul className={s.list}>
