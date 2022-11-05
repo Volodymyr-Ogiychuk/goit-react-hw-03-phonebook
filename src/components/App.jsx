@@ -15,8 +15,11 @@ class App extends Component {
   
   componentDidMount() {
 
-    this.setState({ contacts: [...this.state.contacts, ...JSON.parse(localStorage.getItem('cntcts'))] })
+    if([...JSON.parse(localStorage.getItem('cntcts'))].length !==0) {
+
+    this.state.contacts.length !==0 ? this.setState({ contacts: [...this.state.contacts, ...JSON.parse(localStorage.getItem('cntcts'))] }) : this.setState({ contacts: [...JSON.parse(localStorage.getItem('cntcts'))] })
   }
+    }
   
   addContact = (dataContact) => {
     const contact = {
