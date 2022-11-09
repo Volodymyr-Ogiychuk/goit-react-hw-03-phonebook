@@ -7,17 +7,19 @@ import { nanoid } from "nanoid";
 
 class App extends Component {
  state = {
-   contacts: [
-   
-  ],
+   contacts: [],
   filter: ''
   }
   
   componentDidMount() {
+    if (localStorage.getItem('cntcts')) { this.setState({ contacts: JSON.parse(localStorage.getItem('cntcts')) }) }
+  }
 
-    if (localStorage.getItem('cntcts')) {this.state.contacts.length !== 0 ? this.setState({ contacts: [...this.state.contacts, ...JSON.parse(localStorage.getItem('cntcts'))] }) : this.setState({ contacts: [...JSON.parse(localStorage.getItem('cntcts'))] })
-    } return this.state.contacts
-  } 
+  componentDidUpdate(prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+        localStorage.setItem('cntcts', JSON.stringify(this.state.contacts));
+    }  
+  }
   
   addContact = (dataContact) => {
     const contact = {

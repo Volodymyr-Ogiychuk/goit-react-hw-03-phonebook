@@ -4,10 +4,6 @@ import React, {Component} from 'react';
 
 export class ContactList extends Component {
 
-componentDidUpdate() {
-    localStorage.setItem('cntcts', JSON.stringify(this.props.contacts));
-}
-
 render() {
     const { contacts, deleteContact } = this.props;
 
